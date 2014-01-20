@@ -17,9 +17,8 @@ App.Player.prototype = {
         if(this._audio) this._audio.muted = bool;
     },
     change: function (fileName, index) {
-//        if (!this._audio) return
         var self = this;
-        var src = fileName
+        var src = fileName;
         if (this._audio) {
             this._audio.pause();
             self.changeTime(0);
@@ -30,8 +29,11 @@ App.Player.prototype = {
         if (this._audio) {
             this._audio.pause();
         } else {
-            this._audio = $('<audio src="' + src + '" id="sample_' + index + '"  preload="auto" loop="loop" autoload></audio>')[0];
+            this._audio = $('<audio id="sample_' + index + '"  preload="auto" loop="loop" autoload></audio>')[0];
 
+            self.mute(App.list.muted())
+
+            $(this._audio).attr('src', src)
             $(this._audio)
                 .appendTo(this.cnt)
         }
@@ -40,18 +42,10 @@ App.Player.prototype = {
         $(self._audio).bind('ended', function () {
             App.list.next(index + 1)
         });
-        /*self._audio.addEventListener('canplaythrough', function(){
-            alert('ssss')
-        });*/self._audio.addEventListener('canplay', function(){
-            alert('ssss')
-        });
-//        $(self._audio).bind('onbeforeunload', function () {
-//            alert('ssss')
-//        });
 
     },
     play: function () {
-        if (!this._audio) return
+        if (!this._audio) return;
         if (this._audio) {
             this._audio.play();
             return true
@@ -60,7 +54,7 @@ App.Player.prototype = {
         }
     },
     pause: function () {
-        if (!this._audio) return
+        if (!this._audio) return;
         this._audio.pause();
     },
     _listenTimer: function (duration) {

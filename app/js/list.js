@@ -17,8 +17,8 @@ var tracksData =  {
             fileName:  "../sounds/The_Beatles_Another_Girl.wav"
         },
         {
-            name: "The Beatles Another Girlsss",
-            fileName:  "../sounds/The_Beatles_Yesterday.mp3"
+            name: "Beattles_Let_it_be(mp3)",
+            fileName:  "../sounds/Beattles_Let_it_be.mp3"
         }
     ]
 };
