@@ -31,6 +31,7 @@
              data-bind="style: {background: background() ? 'rgba(79, 104, 136, 0.40)' : 'rgba(87, 114, 149, 0.100)' }, event: { click: change }">
             <div style="width: 300px;" data-bind="text: name"></div>
 
+            <audio data-bind="event: {ended: onended}, attr: {id: id, src: fileName}"   preload="auto" loop="loop" autoload></audio>
         </div>
     </div>
 </div>

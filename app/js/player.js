@@ -24,24 +24,13 @@ App.Player.prototype = {
             self.changeTime(0);
         }
 
-        this._audio = $('#player_1 #sample_' + index)[0];
+        this._audio = $('#sample_' + index)[0];
 
         if (this._audio) {
             this._audio.pause();
-        } else {
-            this._audio = $('<audio id="sample_' + index + '"  preload="auto" loop="loop" autoload></audio>')[0];
-
-            self.mute(App.list.muted())
-
-            $(this._audio).attr('src', src)
-            $(this._audio)
-                .appendTo(this.cnt)
+            self.mute(App.list.muted());
+            this._audio.play();
         }
-        this._audio.play();
-
-        $(self._audio).bind('ended', function () {
-            App.list.next(index + 1)
-        });
 
     },
     play: function () {
