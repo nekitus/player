@@ -1,0 +1,39 @@
+ТЗ:
+
+1. Реализовать функцию asyncForeach и написать для неё юнит-тесты с использованием qunit:
+
+asyncForeach([1, 2, 3], function(item, index, done) {
+
+ setTimeout(function() {
+
+ console.log(item);
+
+ done();
+
+ }, 1000);
+
+}, function() {
+
+ console.log('end');
+
+});
+
+Вывод в сонсоль:
+
+> 1
+
+> 2
+
+> 3
+
+> "end"
+
+2. С использованием knockoutjs сделать реализацию музыкального плеера.
+
+Обязательно:
+
+- Кнопка play/pause
+
+- Кнопка mute
+
+- Позиция и ползунок проигрывания с использованием <input type="range">
